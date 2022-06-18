@@ -8,8 +8,8 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="Death" type="Sprite" parent="."]
-position = Vector2( 358, 322 )
-scale = Vector2( 9.46875, 10.125 )
+position = Vector2( 294, 321 )
+scale = Vector2( 3.73437, 3.5 )
 texture = ExtResource( 1 )
 
 [node name="DefenceSpirit" type="Sprite" parent="."]
