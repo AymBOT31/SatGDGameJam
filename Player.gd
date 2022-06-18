@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-export (int) var speed = 450
+export (int) var speed = 200
 export (int) var jump_speed = 100
 export (int) var gravity = 100
 var velocity = Vector2.ZERO
@@ -25,7 +25,8 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity, Vector2.UP)
 	if Input.is_action_just_pressed("ui_up"):
 		if is_on_floor():
+			animsprite.play("Jump")
 			velocity.y = -jump_speed
 	else:
-		gravity = 2000
+		gravity = 250
 
