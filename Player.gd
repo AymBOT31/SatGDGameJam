@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 export (int) var speed = 100
-export (int) var jump_speed = 70
+export (int) var jump_speed = 90
 export (int) var gravity = 100
 export (int) var health = 3
 
@@ -43,5 +43,5 @@ func _physics_process(delta):
 func _on_Area2D_body_entered(body):
 
 	health = health - 3
-	global_position.x = 700
-	global_position.y = 272
+	global_position.x = 70
+	global_position.y = 30
