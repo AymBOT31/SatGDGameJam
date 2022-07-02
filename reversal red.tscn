@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=2]
+[gd_scene load_steps=64 format=2]
 
 [ext_resource path="res://desert-ruins.png" type="Texture" id=1]
 [ext_resource path="res://Memory Fragment.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Player.gd" type="Script" id=6]
 [ext_resource path="res://Run.png" type="Texture" id=7]
 [ext_resource path="res://Jump.png" type="Texture" id=8]
+[ext_resource path="res://Label.gd" type="Script" id=9]
 
 [sub_resource type="ConvexPolygonShape2D" id=8]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -523,6 +524,14 @@ position = Vector2( 2, 1.5 )
 scale = Vector2( 1, 0.8 )
 current = true
 zoom = Vector2( 0.2, 0.2 )
+
+[node name="Label" type="Label" parent="Player/Camera2D"]
+margin_left = -95.0
+margin_top = -68.125
+margin_right = -48.0
+margin_bottom = -54.125
+text = "HP-100"
+script = ExtResource( 9 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Player"]
 position = Vector2( -2, 1 )

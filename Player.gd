@@ -3,6 +3,8 @@ extends KinematicBody2D
 export (int) var speed = 100
 export (int) var jump_speed = 70
 export (int) var gravity = 100
+export (int) var health = 100
+
 var velocity = Vector2.ZERO
 onready var animsprite = $AnimatedSprite
 
@@ -35,3 +37,4 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_up"):
 		if is_on_floor():
 			velocity.y = -jump_speed
+			
