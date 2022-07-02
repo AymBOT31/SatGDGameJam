@@ -407,6 +407,16 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 
 [sub_resource type="RectangleShape2D" id=2]
 
+[sub_resource type="AtlasTexture" id=53]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( 66, 66, 66, 66 )
+
+[sub_resource type="AtlasTexture" id=54]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( 264, 66, 66, 66 )
+
 [sub_resource type="AtlasTexture" id=47]
 flags = 4
 atlas = ExtResource( 7 )
@@ -457,18 +467,13 @@ flags = 4
 atlas = ExtResource( 5 )
 region = Rect2( 680, 66, 40, 66 )
 
-[sub_resource type="AtlasTexture" id=53]
-flags = 4
-atlas = ExtResource( 8 )
-region = Rect2( 66, 66, 66, 66 )
-
-[sub_resource type="AtlasTexture" id=54]
-flags = 4
-atlas = ExtResource( 8 )
-region = Rect2( 264, 66, 66, 66 )
-
 [sub_resource type="SpriteFrames" id=7]
 animations = [ {
+"frames": [ SubResource( 53 ), SubResource( 54 ) ],
+"loop": true,
+"name": "jump",
+"speed": 10.0
+}, {
 "frames": [ SubResource( 47 ), SubResource( 48 ), SubResource( 49 ), SubResource( 50 ), SubResource( 51 ), SubResource( 52 ) ],
 "loop": true,
 "name": "Run",
@@ -477,11 +482,6 @@ animations = [ {
 "frames": [ SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ) ],
 "loop": true,
 "name": "Idle",
-"speed": 10.0
-}, {
-"frames": [ SubResource( 53 ), SubResource( 54 ) ],
-"loop": true,
-"name": "jump",
 "speed": 10.0
 } ]
 
