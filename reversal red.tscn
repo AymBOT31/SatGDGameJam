@@ -530,7 +530,7 @@ margin_left = -95.0
 margin_top = -68.125
 margin_right = -48.0
 margin_bottom = -54.125
-text = "HP-100"
+text = "HP - 3"
 script = ExtResource( 9 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Player"]
