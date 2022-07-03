@@ -45,3 +45,5 @@ func _on_Area2D_body_entered(body):
 	health = health - 3
 	global_position.x = 70
 	global_position.y = 30
+	
+
