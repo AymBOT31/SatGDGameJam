@@ -74,12 +74,17 @@ func _on_Area2D3_body_entered(body):
 
 
 func _on_Area2D4_body_entered(body):
-	pass # Replace with function body.
-	
+	speed = speed + 50
+	gravity = gravity + 200
+	jump_speed = jump_speed - 30
 
 
 func _on_Area2D5_body_entered(body):
-	pass # Replace with function body.
+	health = health + 1
+	speed = speed - 30
+	gravity = gravity - 100
+	jump_speed = jump_speed + 10
+
 
 
 func _on_Area2D6_body_entered(body):
