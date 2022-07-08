@@ -627,8 +627,10 @@ extents = Vector2( 1568, 69 )
 [sub_resource type="RectangleShape2D" id=57]
 
 [sub_resource type="RectangleShape2D" id=58]
+extents = Vector2( 5, 5 )
 
 [sub_resource type="RectangleShape2D" id=59]
+extents = Vector2( 10, 9 )
 
 [sub_resource type="RectangleShape2D" id=60]
 
@@ -712,6 +714,11 @@ scale = Vector2( 0.65, 0.530303 )
 frames = SubResource( 7 )
 animation = "jump"
 
+[node name="Node2D" type="Node2D" parent="Player"]
+
+[node name="Position2D" type="Position2D" parent="Player/Node2D"]
+position = Vector2( 16, 0 )
+
 [node name="MemoryFragment5" type="Sprite" parent="."]
 position = Vector2( 351, 874 )
 scale = Vector2( 1.8125, 1.9375 )
@@ -737,7 +744,8 @@ text = "This is the final boss's layer,
 are you sure you want to continue?"
 
 [node name="SpeedSpirit" type="Sprite" parent="."]
-position = Vector2( 944, 392 )
+position = Vector2( 848, 400 )
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 13 )
 
 [node name="DefenceSpirit" type="Sprite" parent="."]
@@ -766,15 +774,17 @@ position = Vector2( 2704, 896 )
 shape = SubResource( 57 )
 
 [node name="Area2D4" type="Area2D" parent="."]
-position = Vector2( 944, 392 )
+position = Vector2( 856, 408 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D4"]
+position = Vector2( -8, -8 )
 shape = SubResource( 58 )
 
 [node name="Area2D5" type="Area2D" parent="."]
 position = Vector2( 1440, 544 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D5"]
+position = Vector2( 0, -9 )
 shape = SubResource( 59 )
 
 [node name="Area2D6" type="Area2D" parent="."]

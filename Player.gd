@@ -4,11 +4,14 @@ export (int) var speed = 100
 export (int) var jump_speed = 210
 export (int) var gravity = 500
 export (int) var health = 3
+const bulletPath = preload ("res://projectile.tscn")
 
 var velocity = Vector2.ZERO
 onready var animsprite = $AnimatedSprite
 
+
 func get_input():
+	
 	velocity.x = 0
 	if velocity.y != 0:
 		animsprite.play("jump")
@@ -30,6 +33,7 @@ func get_input():
 		else:
 			animsprite.play("Idle")
 
+
 func _physics_process(delta):
 	get_input()
 	velocity.y += gravity * delta
@@ -37,7 +41,22 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_up"):
 		if is_on_floor():
 			velocity.y = -jump_speed
+
 			
+
+
+func _process(delta):
+	if Input.is_action_just_pressed("shoot"):
+		print("shooting")
+		shoot()
+	$Node2D.look_at(get_global_mouse_position())
+	
+func shoot():
+	var projectile = bulletPath.instance()
+	get_parent().add_child(projectile)
+	projectile.position = $Position2D.global_position
+	
+	projectile.velocity = get_global_mouse_position() - projectile.position
 
 
 func _on_Area2D_body_entered(body):
@@ -75,8 +94,8 @@ func _on_Area2D3_body_entered(body):
 
 func _on_Area2D4_body_entered(body):
 	speed = speed + 50
-	gravity = gravity + 200
-	jump_speed = jump_speed - 30
+	gravity = gravity + 50
+
 
 
 func _on_Area2D5_body_entered(body):
