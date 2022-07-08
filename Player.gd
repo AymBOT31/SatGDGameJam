@@ -47,3 +47,56 @@ func _on_Area2D_body_entered(body):
 	global_position.y = 30
 	
 
+
+
+func _on_Area2D2_body_entered(body):
+	health = health - 3
+	global_position.x = 70
+	global_position.y = 30
+
+
+func _on_Area2D11_body_entered(body):
+	health = health - 3
+	global_position.x = 70
+	global_position.y = 30
+
+
+
+func _on_Area2D12_body_entered(body):
+	health = health - 3
+	global_position.x = 70
+	global_position.y = 30
+
+
+func _on_Area2D3_body_entered(body):
+	global_position.x = 70
+	global_position.y = 30
+
+
+func _on_Area2D4_body_entered(body):
+	pass # Replace with function body.
+	
+
+
+func _on_Area2D5_body_entered(body):
+	pass # Replace with function body.
+
+
+func _on_Area2D6_body_entered(body):
+	pass # Replace with function body.
+
+
+func _on_Area2D7_body_entered(body):
+	pass # Replace with function body.
+
+
+func _on_Area2D8_body_entered(body):
+	pass # Replace with function body.
+
+
+func _on_Area2D9_body_entered(body):
+	pass # Replace with function body.
+
+
+func _on_Area2D10_body_entered(body):
+	pass # Replace with function body.
