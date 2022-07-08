@@ -41,6 +41,14 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_up"):
 		if is_on_floor():
 			velocity.y = -jump_speed
+	if Input.is_action_just_pressed("ui_down"):
+			velocity.y =+ gravity 
+	if Input.is_action_just_pressed("alt"):
+			speed = speed + 50
+			health = health + 100
+			jump_speed = jump_speed + 30
+			
+			
 
 			
 
@@ -54,7 +62,7 @@ func _process(delta):
 func shoot():
 	var projectile = bulletPath.instance()
 	get_parent().add_child(projectile)
-	projectile.position = $Position2D.global_position
+	projectile.position = $Position2D.position
 	
 	projectile.velocity = get_global_mouse_position() - projectile.position
 
