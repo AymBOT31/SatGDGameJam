@@ -8,6 +8,7 @@ const bulletPath = preload ("res://projectile.tscn")
 
 var velocity = Vector2.ZERO
 onready var animsprite = $AnimatedSprite
+onready var pposition = get_node("root/Node2D/Player/Node2D/Position2D")
 
 
 func get_input():
@@ -49,20 +50,20 @@ func _physics_process(delta):
 			jump_speed = jump_speed + 30
 			
 			
-
-			
-
-
-func _process(delta):
 	if Input.is_action_just_pressed("shoot"):
 		print("shooting")
 		shoot()
 	$Node2D.look_at(get_global_mouse_position())
-	
+
+
+
+
+
+
 func shoot():
 	var projectile = bulletPath.instance()
 	get_parent().add_child(projectile)
-	projectile.position = $Position2D.position
+	projectile.position = pposition.position
 	
 	projectile.velocity = get_global_mouse_position() - projectile.position
 
