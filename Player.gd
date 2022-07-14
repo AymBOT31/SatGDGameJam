@@ -1,14 +1,15 @@
 extends KinematicBody2D
 
 export (int) var speed = 100
-export (int) var jump_speed = 210
+export (int) var jump_speed = 200
 export (int) var gravity = 500
 export (int) var health = 3
-const bulletPath = preload ("res://projectile.tscn")
+
 
 var velocity = Vector2.ZERO
 onready var animsprite = $AnimatedSprite
-onready var pposition = get_node("root/Node2D/Player/Node2D/Position2D")
+onready var pposition = $Position2D
+onready var bulletPath = preload ("res://projectile.tscn")
 
 
 func get_input():
@@ -48,6 +49,9 @@ func _physics_process(delta):
 			speed = speed + 50
 			health = health + 100
 			jump_speed = jump_speed + 30
+	if Input.is_action_just_pressed("R"):
+			global_position.x = 70
+			global_position.y = 30
 			
 			
 	if Input.is_action_just_pressed("shoot"):
@@ -62,7 +66,7 @@ func _physics_process(delta):
 
 func shoot():
 	var projectile = bulletPath.instance()
-	get_parent().add_child(projectile)
+	add_child(projectile)
 	projectile.position = pposition.position
 	
 	projectile.velocity = get_global_mouse_position() - projectile.position
@@ -112,11 +116,12 @@ func _on_Area2D5_body_entered(body):
 	speed = speed - 30
 	gravity = gravity - 100
 	jump_speed = jump_speed + 10
+	
 
 
 
 func _on_Area2D6_body_entered(body):
-	pass # Replace with function body.
+		pass # Replace with function body.
 
 
 func _on_Area2D7_body_entered(body):
