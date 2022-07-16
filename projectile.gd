@@ -3,6 +3,7 @@ extends AnimatedSprite
 var velocity = Vector2(1, 0)
 var speed = 3
 onready var animsprite = $AnimatedSprite2D
+onready var collision = $CollisionShape2D
 
 func _physics_process(delta):
 
@@ -12,7 +13,7 @@ func _physics_process(delta):
 		queue_free()
 
 
-func on_TileMap_body_entered():
+func on_collision_body_entered():
 	queue_free()
 
 

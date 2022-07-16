@@ -20,9 +20,11 @@ func get_input():
 		if Input.is_action_pressed("ui_right"):
 				animsprite.set_flip_h(false)
 				velocity.x += speed
+				$Node2D.rotation_degrees = 0
 		elif Input.is_action_pressed("ui_left"):
 				animsprite.set_flip_h(true)
 				velocity.x -= speed
+				$Node2D.rotation_degrees = 180
 	else:
 		if Input.is_action_pressed("ui_right"):
 			animsprite.set_flip_h(false)
