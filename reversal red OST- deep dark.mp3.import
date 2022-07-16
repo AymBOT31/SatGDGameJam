@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/reversal red OST- deep dark.mp3-8d239f79ca94bb89417cd2e6cdef70a9.mp3str"
+
+[deps]
+
+source_file="res://reversal red OST- deep dark.mp3"
+dest_files=[ "res://.import/reversal red OST- deep dark.mp3-8d239f79ca94bb89417cd2e6cdef70a9.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
