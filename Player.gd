@@ -4,6 +4,7 @@ export (int) var speed = 100
 export (int) var jump_speed = 200
 export (int) var gravity = 500
 export (int) var health = 3
+export (int) var direction = 0
 const bulletPath = preload ("res://projectile.tscn")
 
 var velocity = Vector2.ZERO
@@ -20,16 +21,18 @@ func get_input():
 		if Input.is_action_pressed("ui_right"):
 				animsprite.set_flip_h(false)
 				velocity.x += speed
-				$Node2D.rotation_degrees = 0
+				direction = 1
 		elif Input.is_action_pressed("ui_left"):
 				animsprite.set_flip_h(true)
 				velocity.x -= speed
-				$Node2D.rotation_degrees = 180
+				direction = 0
 	else:
 		if Input.is_action_pressed("ui_right"):
 			animsprite.set_flip_h(false)
 			animsprite.play("Run")
 			velocity.x += speed
+			
+			
 		elif Input.is_action_pressed("ui_left"):
 			animsprite.set_flip_h(true)
 			animsprite.play("Run")
@@ -74,7 +77,10 @@ func shoot():
 	var projectile = bulletPath.instance()
 	add_child(projectile)
 	projectile.position = pposition.position
-	
+	if direction == 1:
+		projectile.speed = -1*projectile.speed
+	else:
+		projectile.speed = 1*projectile.speed
 	projectile.velocity = get_global_mouse_position() - projectile.position
 
 	

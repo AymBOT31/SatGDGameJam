@@ -1,6 +1,6 @@
 extends AnimatedSprite
 
-var velocity = Vector2(1, 0)
+var velocity = Vector2(0, 1)
 var speed = 3
 onready var animsprite = $AnimatedSprite2D
 onready var collision = $CollisionShape2D
