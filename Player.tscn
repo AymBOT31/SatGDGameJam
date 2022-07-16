@@ -1,13 +1,64 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Label.gd" type="Script" id=1]
 [ext_resource path="res://Player.gd" type="Script" id=2]
 [ext_resource path="res://Run.png" type="Texture" id=3]
 [ext_resource path="res://Jump.png" type="Texture" id=4]
 [ext_resource path="res://Idle.png" type="Texture" id=5]
+[ext_resource path="res://Attack1.png" type="Texture" id=6]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 13, 13 )
+
+[sub_resource type="AtlasTexture" id=53]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 66, 66, 66, 66 )
+
+[sub_resource type="AtlasTexture" id=54]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 264, 66, 66, 66 )
+
+[sub_resource type="AtlasTexture" id=55]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 0, 66, 200, 66 )
+
+[sub_resource type="AtlasTexture" id=56]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 200, 66, 200, 66 )
+
+[sub_resource type="AtlasTexture" id=57]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 400, 66, 200, 66 )
+
+[sub_resource type="AtlasTexture" id=58]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 600, 66, 200, 66 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 80, 66, 40, 66 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 280, 66, 40, 66 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 480, 66, 40, 66 )
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 680, 66, 40, 66 )
 
 [sub_resource type="AtlasTexture" id=47]
 flags = 4
@@ -39,51 +90,26 @@ flags = 4
 atlas = ExtResource( 3 )
 region = Rect2( 1056, 66, 66, 66 )
 
-[sub_resource type="AtlasTexture" id=53]
-flags = 4
-atlas = ExtResource( 4 )
-region = Rect2( 66, 66, 66, 66 )
-
-[sub_resource type="AtlasTexture" id=54]
-flags = 4
-atlas = ExtResource( 4 )
-region = Rect2( 264, 66, 66, 66 )
-
-[sub_resource type="AtlasTexture" id=3]
-flags = 4
-atlas = ExtResource( 5 )
-region = Rect2( 80, 66, 40, 66 )
-
-[sub_resource type="AtlasTexture" id=4]
-flags = 4
-atlas = ExtResource( 5 )
-region = Rect2( 280, 66, 40, 66 )
-
-[sub_resource type="AtlasTexture" id=5]
-flags = 4
-atlas = ExtResource( 5 )
-region = Rect2( 480, 66, 40, 66 )
-
-[sub_resource type="AtlasTexture" id=6]
-flags = 4
-atlas = ExtResource( 5 )
-region = Rect2( 680, 66, 40, 66 )
-
 [sub_resource type="SpriteFrames" id=7]
 animations = [ {
-"frames": [ SubResource( 47 ), SubResource( 48 ), SubResource( 49 ), SubResource( 50 ), SubResource( 51 ), SubResource( 52 ) ],
-"loop": true,
-"name": "Run",
-"speed": 10.0
-}, {
 "frames": [ SubResource( 53 ), SubResource( 54 ) ],
 "loop": true,
 "name": "jump",
 "speed": 10.0
 }, {
+"frames": [ SubResource( 55 ), SubResource( 56 ), SubResource( 57 ), SubResource( 58 ), SubResource( 55 ) ],
+"loop": false,
+"name": "Attack",
+"speed": 5.0
+}, {
 "frames": [ SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ) ],
 "loop": true,
 "name": "Idle",
+"speed": 10.0
+}, {
+"frames": [ SubResource( 47 ), SubResource( 48 ), SubResource( 49 ), SubResource( 50 ), SubResource( 51 ), SubResource( 52 ) ],
+"loop": true,
+"name": "Run",
 "speed": 10.0
 } ]
 
@@ -112,9 +138,9 @@ script = ExtResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.65, 0.530303 )
 frames = SubResource( 7 )
-animation = "jump"
+animation = "Attack"
 
 [node name="Node2D" type="Node2D" parent="."]
 
-[node name="Position2D" type="Position2D" parent="."]
+[node name="Position2D" type="Position2D" parent="Node2D"]
 position = Vector2( 16, 0 )

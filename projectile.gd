@@ -1,7 +1,8 @@
-extends Sprite
+extends AnimatedSprite
 
 var velocity = Vector2(1, 0)
 var speed = 3
+onready var animsprite = $AnimatedSprite2D
 
 func _physics_process(delta):
 
@@ -11,6 +12,8 @@ func _physics_process(delta):
 		queue_free()
 
 
+func on_TileMap_body_entered():
+	queue_free()
 
 
 
@@ -19,8 +22,7 @@ func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
 
 
-func _on_Area2D_area_entered(area):
-	queue_free()
+
 	
 
 

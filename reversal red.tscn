@@ -1,4 +1,4 @@
-[gd_scene load_steps=84 format=2]
+[gd_scene load_steps=86 format=2]
 
 [ext_resource path="res://desert-ruins.png" type="Texture" id=1]
 [ext_resource path="res://Memory Fragment.png" type="Texture" id=2]
@@ -17,6 +17,8 @@
 [ext_resource path="res://memory fragment 4.png" type="Texture" id=15]
 [ext_resource path="res://hell_beast.tscn" type="PackedScene" id=16]
 [ext_resource path="res://ghost.tscn" type="PackedScene" id=17]
+[ext_resource path="res://demon.tscn" type="PackedScene" id=18]
+[ext_resource path="res://fire_skull.tscn" type="PackedScene" id=19]
 
 [sub_resource type="ConvexPolygonShape2D" id=8]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -629,7 +631,7 @@ scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 13 )
 
 [node name="DefenceSpirit" type="Sprite" parent="."]
-position = Vector2( 1440, 544 )
+position = Vector2( 1448, 480 )
 texture = ExtResource( 14 )
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -661,10 +663,10 @@ position = Vector2( -8, -8 )
 shape = SubResource( 58 )
 
 [node name="Area2D5" type="Area2D" parent="."]
-position = Vector2( 1440, 544 )
+position = Vector2( 1440, 552 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D5"]
-position = Vector2( 0, -9 )
+position = Vector2( 8, -72 )
 shape = SubResource( 59 )
 
 [node name="Area2D6" type="Area2D" parent="."]
@@ -759,6 +761,13 @@ position = Vector2( 216, 392 )
 
 [node name="ghost" parent="." instance=ExtResource( 17 )]
 position = Vector2( 424, 872 )
+
+[node name="demon" parent="." instance=ExtResource( 18 )]
+position = Vector2( 2448, 904 )
+scale = Vector2( 0.854929, 0.771366 )
+
+[node name="fire_skull" parent="." instance=ExtResource( 19 )]
+position = Vector2( 1312, 376 )
 
 [connection signal="body_entered" from="Area2D" to="Player" method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="Area2D2" to="Player" method="_on_Area2D2_body_entered"]
