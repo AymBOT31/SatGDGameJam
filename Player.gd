@@ -80,29 +80,30 @@ func shoot():
 func _on_Area2D_body_entered(body):
 
 	health = health - 3
-	get_tree().reload_current_scene()
+	#get_tree().reload_current_scene()
 	
 
 
 
 func _on_Area2D2_body_entered(body):
 	health = health - 3
-	get_tree().reload_current_scene()
+	#get_tree().reload_current_scene()
 
 
 func _on_Area2D11_body_entered(body):
 	health = health - 3
-	get_tree().reload_current_scene()
+	#get_tree().reload_current_scene()
 
 
 
 func _on_Area2D12_body_entered(body):
 	health = health - 3
-	get_tree().reload_current_scene()
+	#get_tree().reload_current_scene()
 
 
 func _on_Area2D3_body_entered(body):
-	get_tree().reload_current_scene()
+	#get_tree().reload_current_scene()
+	pass
 
 
 func _on_Area2D4_body_entered(body):

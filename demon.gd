@@ -22,6 +22,8 @@ func _physics_process(delta):
 	velocity.y += gravity * delta
 	velocity = move_and_slide(velocity, Vector2.UP)
 	animsprite.play ("idle")
+	if Input.is_action_pressed("ui_accept"):
+		animplayer.play("Entrance")
 	if health == 0:
 		animsprite.play ("death")
 		set_physics_process(false)
@@ -33,7 +35,7 @@ func _physics_process(delta):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
-
+	
 
 func _on_arcane_archer_health_zero():
 	animplayer.play("Entrance")
