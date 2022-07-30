@@ -8,6 +8,7 @@ var velocity = Vector2.ZERO
 
 
 onready var animsprite = $AnimatedSprite
+onready var animplayer = $AnimationPlayer
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -35,4 +36,4 @@ func _physics_process(delta):
 
 
 func _on_arcane_archer_health_zero():
-	gravity = gravity + 500
+	animplayer.play("Entrance")
