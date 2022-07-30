@@ -1,5 +1,5 @@
 extends KinematicBody2D
-export (int) var gravity = 500
+export (int) var gravity = 0
 export (int) var health = 10
 export (int) var speed = 700
 var velocity = Vector2.ZERO
@@ -32,3 +32,7 @@ func _physics_process(delta):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+
+func _on_arcane_archer_health_zero():
+	gravity = gravity + 500

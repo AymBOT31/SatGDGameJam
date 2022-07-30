@@ -3,6 +3,7 @@ export (int) var gravity = 500
 export (int) var health = 10
 export (int) var speed = 700
 var velocity = Vector2.ZERO
+signal health_zero
 
 #oh the misery
 
@@ -26,9 +27,11 @@ func _physics_process(delta):
 		animsprite.play ("death")
 		set_physics_process(false)
 		$CollisionShape2D.disabled = true
+
 		
 		
-	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	if health <= 0:
+		 emit_signal("health_zero")
+
+
