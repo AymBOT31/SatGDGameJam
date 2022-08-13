@@ -93,7 +93,7 @@ animations = [ {
 
 [sub_resource type="CircleShape2D" id=1]
 
-[node name="Sprite" type="AnimatedSprite"]
+[node name="Sprite" type="AnimatedSprite" groups=["bullet"]]
 frames = SubResource( 18 )
 animation = "shoot"
 script = ExtResource( 3 )

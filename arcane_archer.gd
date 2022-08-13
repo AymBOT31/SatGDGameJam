@@ -1,6 +1,6 @@
 extends KinematicBody2D
 export (int) var gravity = 500
-export (int) var health = 10
+export (int) var health = 250
 export (int) var speed = 700
 var velocity = Vector2.ZERO
 signal health_zero

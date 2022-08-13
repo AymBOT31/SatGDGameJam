@@ -113,7 +113,7 @@ animations = [ {
 "speed": 10.0
 } ]
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" groups=["Player"]]
 position = Vector2( -96, -128 )
 script = ExtResource( 2 )
 
