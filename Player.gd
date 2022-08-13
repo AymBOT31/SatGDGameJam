@@ -79,18 +79,18 @@ func _on_Area2D_body_entered(body):
 
 func _on_Area2D2_body_entered(body):
 	if body.is_in_group("Player"):
-		health = health - 1
+		health = health - 3
 
 
 func _on_Area2D11_body_entered(body):
 	if body.is_in_group("Player"):
-		health = health - 1
+		health = health - 3
 
 
 
 func _on_Area2D12_body_entered(body):
 	if body.is_in_group("Player"):
-		health = health - 1
+		health = health - 3
 
 
 func _on_Area2D3_body_entered(body):
@@ -100,7 +100,7 @@ func _on_Area2D3_body_entered(body):
 
 func _on_Area2D4_body_entered(body):
 	if body.is_in_group("Player"):
-		health = health - 1
+		health = health - 3
 
 
 
@@ -114,7 +114,7 @@ func _on_Area2D5_body_entered(body):
 
 func _on_Area2D13_body_entered(body):
 	if body.is_in_group("Player"):
-		health = health - 1
+		health = health -3
 		speed = speed* -1
 	
 	
