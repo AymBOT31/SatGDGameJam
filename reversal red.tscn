@@ -1,4 +1,4 @@
-[gd_scene load_steps=90 format=2]
+[gd_scene load_steps=91 format=2]
 
 [ext_resource path="res://desert-ruins.png" type="Texture" id=1]
 [ext_resource path="res://Memory Fragment.png" type="Texture" id=2]
@@ -592,6 +592,9 @@ extents = Vector2( 122.5, 632 )
 [sub_resource type="RectangleShape2D" id=66]
 extents = Vector2( 56.5, 324 )
 
+[sub_resource type="RectangleShape2D" id=85]
+extents = Vector2( 72, 25 )
+
 [node name="Node2D" type="Node2D"]
 position = Vector2( 144, 168 )
 script = ExtResource( 21 )
@@ -808,6 +811,12 @@ scale = Vector2( 0.854929, 0.771366 )
 [node name="fire_skull" parent="." instance=ExtResource( 19 )]
 position = Vector2( 1304, 336 )
 
+[node name="Area2D16" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D16"]
+position = Vector2( 696, 225 )
+shape = SubResource( 85 )
+
 [connection signal="body_entered" from="Area2D" to="Player" method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="Area2D13" to="Player" method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="Area2D14" to="Player" method="_on_Area2D_body_entered"]
@@ -823,3 +832,5 @@ position = Vector2( 1304, 336 )
 [connection signal="body_entered" from="Area2D11" to="Player" method="_on_Area2D11_body_entered"]
 [connection signal="body_entered" from="Area2D12" to="Player" method="_on_Area2D12_body_entered"]
 [connection signal="health_zero" from="arcane_archer" to="demon" method="_on_arcane_archer_health_zero"]
+[connection signal="body_entered" from="Area2D16" to="old_golem" method="_on_Area2D16_body_entered"]
+[connection signal="body_exited" from="Area2D16" to="old_golem" method="_on_Area2D16_body_exited"]

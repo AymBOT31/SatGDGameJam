@@ -1,7 +1,7 @@
 extends KinematicBody2D
-export (int) var gravity = 0
+export (int) var gravity = 100
 export (int) var health = 5
-export (int) var speed = 10
+export (int) var speed = 5
 var velocity = Vector2.ZERO
 var chasing = false
 
@@ -25,7 +25,10 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity, Vector2.UP)
 	animsprite.play ("idle")
 	if chasing == true:
-		obj.get_position.x
+		if obj.global_position.x < 880 and obj.global_position.x > 352:
+			velocity.x = obj.global_position.x - global_position.x
+		else:
+			animsprite.play ("walk")
 	
 	if health == 0:
 		animsprite.play ("death")
@@ -34,12 +37,12 @@ func _physics_process(delta):
 		queue_free()
 
 		
-func _on_Area2D_body_entered(body):
+func _on_Area2D16_body_entered(body):
 	if body.is_in_group("Player"):
 		chasing = true
 
 
-func _on_Area2D_body_exited(body):
+func _on_Area2D16_body_exited(body):
 	if body.is_in_group("Player"):
 		chasing = false
 	
