@@ -4,6 +4,7 @@ export (int) var health = 5
 export (int) var speed = 5
 var velocity = Vector2.ZERO
 var chasing = false
+var idling = true
 
 
 #oh the misery
@@ -23,13 +24,17 @@ func _on_VisibilityNotifier2D_screen_exited():
 func _physics_process(delta):
 	velocity.y += gravity * delta
 	velocity = move_and_slide(velocity, Vector2.UP)
-	animsprite.play ("idle")
+	
+	if idling == true:
+		animsprite.play("idle")
+	
 	if chasing == true:
 		if obj.global_position.x < 880 and obj.global_position.x > 352:
 			velocity.x = obj.global_position.x - global_position.x
 			animsprite.play ("walk")
-		else:
-			animsprite.play ("idle") 
+		elif idling == true:
+			
+			animsprite.play("idle")
 	
 	if health == 0:
 		animsprite.play ("death")
@@ -46,4 +51,15 @@ func _on_Area2D16_body_entered(body):
 func _on_Area2D16_body_exited(body):
 	if body.is_in_group("Player"):
 		chasing = false
+		
+		
+func _on_attack_area_body_entered(body):
+	if body.is_in_group("Player"):
+		animsprite.play("attack")
+	else:
+		idling == false
 	
+	
+	
+
+
