@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://Old_Golem_idle.png" type="Texture" id=1]
 [ext_resource path="res://Enemy.gd" type="Script" id=2]
@@ -195,6 +195,38 @@ extents = Vector2( 13, 13 )
 [sub_resource type="RectangleShape2D" id=28]
 extents = Vector2( 24, 20 )
 
+[sub_resource type="Animation" id=39]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("damage/CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=37]
+resource_name = "attack"
+tracks/0/type = "value"
+tracks/0/path = NodePath("damage/CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+
+[sub_resource type="RectangleShape2D" id=38]
+
 [node name="Enemy" type="KinematicBody2D" groups=["enemy"]]
 script = ExtResource( 2 )
 
@@ -202,6 +234,7 @@ script = ExtResource( 2 )
 scale = Vector2( 0.405266, 0.363341 )
 frames = SubResource( 8 )
 animation = "attack"
+frame = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2( 1.11699, 1.22068 )
@@ -212,13 +245,25 @@ shape = SubResource( 1 )
 [node name="attack_area" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attack_area"]
-position = Vector2( 0, -4 )
+position = Vector2( -32, 0 )
 shape = SubResource( 28 )
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 39 )
+anims/attack = SubResource( 37 )
+
+[node name="damage" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="damage"]
+position = Vector2( -26, 0 )
+shape = SubResource( 38 )
+disabled = true
 
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
 [connection signal="body_entered" from="attack_area" to="." method="_on_attack_area_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="area_shape_entered" from="damage" to="." method="_on_damage_area_shape_entered"]
+[connection signal="body_entered" from="damage" to="." method="_on_damage_body_entered"]

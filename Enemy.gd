@@ -11,7 +11,7 @@ var idling = false
 
 
 onready var animsprite = $AnimatedSprite
-
+onready var animplayer = $AnimationPlayer
 onready var obj = get_parent().get_node("Player")
 onready var timer = $Timer
 # Declare member variables here. Examples:
@@ -59,6 +59,7 @@ func _on_attack_area_body_entered(body):
 		idling = false
 		chasing = false
 		animsprite.play("attack")
+		animplayer.play("attack")
 		
 	
 
@@ -77,6 +78,14 @@ func _on_Timer_timeout():
 
 
 func _on_AnimatedSprite_animation_finished():
-	$Timer.start(0.5)
+	$Timer.start(1)
 	chasing = true
 	
+
+
+
+
+
+func _on_damage_body_entered(body):
+		if body.is_in_group("Player"):
+			print("dead")
