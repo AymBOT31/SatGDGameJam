@@ -53,18 +53,13 @@ func _physics_process(delta):
 			jump_speed = jump_speed + 30
 	if Input.is_action_just_pressed("R"):
 		get_tree().reload_current_scene()
-			
-			
+	if health <=0:
+		get_tree().reload_current_scene()
 	if Input.is_action_just_pressed("shoot"):
 		print("shooting")
 		shoot()
 		animsprite.play("Attack")
 		
-
-
-
-
-
 
 func shoot():
 	var projectile = bulletPath.instance()
@@ -78,27 +73,24 @@ func shoot():
 
 
 func _on_Area2D_body_entered(body):
-
-	health = health - 3
-	#get_tree().reload_current_scene()
-	
-
+	if body.is_in_group("Player"):
+		print("cat")
 
 
 func _on_Area2D2_body_entered(body):
-	health = health - 3
-	#get_tree().reload_current_scene()
+	if body.is_in_group("Player"):
+		health = health - 1
 
 
 func _on_Area2D11_body_entered(body):
-	health = health - 3
-	#get_tree().reload_current_scene()
+	if body.is_in_group("Player"):
+		health = health - 1
 
 
 
 func _on_Area2D12_body_entered(body):
-	health = health - 3
-	#get_tree().reload_current_scene()
+	if body.is_in_group("Player"):
+		health = health - 1
 
 
 func _on_Area2D3_body_entered(body):
@@ -107,21 +99,23 @@ func _on_Area2D3_body_entered(body):
 
 
 func _on_Area2D4_body_entered(body):
-	speed = speed + 50
-	gravity = gravity + 50
+	if body.is_in_group("Player"):
+		health = health - 1
 
 
 
 func _on_Area2D5_body_entered(body):
-	health = health + 1
-	speed = speed - 30
-	gravity = gravity - 100
-	jump_speed = jump_speed + 10
+	if body.is_in_group("Player"):
+		health = health + 1
+		speed = speed - 30
+		gravity = gravity - 100
+		jump_speed = jump_speed + 10
 	
 
 func _on_Area2D13_body_entered(body):
-	speed = speed * -1
-	health = health -1
+	if body.is_in_group("Player"):
+		health = health - 1
+		speed = speed* -1
 	
 	
 

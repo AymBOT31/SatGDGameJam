@@ -668,7 +668,7 @@ position = Vector2( 569, 458 )
 scale = Vector2( 1.00351, 0.989185 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D13"]
-position = Vector2( -521, -378 )
+position = Vector2( -519.178, -379.1 )
 scale = Vector2( 1.11958, 1 )
 shape = SubResource( 55 )
 
@@ -688,7 +688,6 @@ position = Vector2( 1120, 1048 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
 position = Vector2( 0, -8 )
 shape = SubResource( 56 )
-one_way_collision = true
 
 [node name="Area2D3" type="Area2D" parent="."]
 position = Vector2( 2704, 896 )
