@@ -27,8 +27,9 @@ func _physics_process(delta):
 	if chasing == true:
 		if obj.global_position.x < 880 and obj.global_position.x > 352:
 			velocity.x = obj.global_position.x - global_position.x
-		else:
 			animsprite.play ("walk")
+		else:
+			animsprite.play ("idle") 
 	
 	if health == 0:
 		animsprite.play ("death")
