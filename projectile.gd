@@ -2,8 +2,8 @@ extends AnimatedSprite
 
 var velocity = Vector2(1, 0)
 var speed = 3
-onready var animsprite = $Sprite
-onready var collision = $CollisionShape2D
+
+
 
 func _physics_process(delta):
 	play ("shoot")

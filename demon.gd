@@ -11,7 +11,7 @@ var chasing = false
 
 onready var animsprite = $AnimatedSprite
 onready var animplayer = $AnimationPlayer
-onready var obj = $Player
+onready var obj = get_parent().get_node("Player")
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"

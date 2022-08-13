@@ -4,13 +4,14 @@ export (int) var health = 5
 export (int) var speed = 5
 var velocity = Vector2.ZERO
 var chasing = false
-var idling = true
+var idling = false
 
 
 #oh the misery
 
 
 onready var animsprite = $AnimatedSprite
+onready var timer = $Timer
 onready var obj = get_parent().get_node("Player")
 # Declare member variables here. Examples:
 # var a = 2
@@ -25,16 +26,15 @@ func _physics_process(delta):
 	velocity.y += gravity * delta
 	velocity = move_and_slide(velocity, Vector2.UP)
 	
-	if idling == true:
-		animsprite.play("idle")
+
 	
 	if chasing == true:
 		if obj.global_position.x < 880 and obj.global_position.x > 352:
 			velocity.x = obj.global_position.x - global_position.x
 			animsprite.play ("walk")
-		elif idling == true:
+	elif idling == true:
 			
-			animsprite.play("idle")
+		animsprite.play("idle")
 	
 	if health == 0:
 		animsprite.play ("death")
@@ -55,11 +55,24 @@ func _on_Area2D16_body_exited(body):
 		
 func _on_attack_area_body_entered(body):
 	if body.is_in_group("Player"):
+		idling = false
 		animsprite.play("attack")
-	else:
-		idling == false
+		
+	
+
 	
 	
 	
 
 
+
+
+func _on_Timer_timeout():
+	if idling == false and chasing == false:
+		
+		idling == true
+	
+
+
+func _on_AnimatedSprite_animation_finished():
+	timer.start()
