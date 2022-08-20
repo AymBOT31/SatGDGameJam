@@ -39,6 +39,9 @@ func get_input():
 
 
 func _physics_process(delta):
+	if health <= 0:
+		get_tree().reload_current_scene()
+	
 	get_input()
 	velocity.y += gravity * delta
 	velocity = move_and_slide(velocity, Vector2.UP)
@@ -140,10 +143,12 @@ func _on_Area2D10_body_entered(body):
 
 
 func _on_Area2D15_body_entered(body):
-	health = health - 3
-	gravity = gravity - 505
-	print("spike")
+	if body.is_in_group("Player"):
+		health = health - 3
+		gravity = gravity - 550
+		print("spike")
 
 
 func _on_Area2D15_body_exited(body):
-	gravity = gravity + 505
+	if body.is_in_group("Player"):
+		gravity = gravity + 550

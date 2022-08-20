@@ -61,7 +61,7 @@ func _on_attack_area_body_entered(body):
 		idling = false
 		chasing = false
 		animsprite.play("attack")
-		animplayer.play("attack")
+		
 		
 	
 
