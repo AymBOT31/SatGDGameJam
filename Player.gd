@@ -137,3 +137,13 @@ func _on_Area2D9_body_entered(body):
 
 func _on_Area2D10_body_entered(body):
 	pass # Replace with function body.
+
+
+func _on_Area2D15_body_entered(body):
+	health = health - 3
+	gravity = gravity - 505
+	print("spike")
+
+
+func _on_Area2D15_body_exited(body):
+	gravity = gravity + 505

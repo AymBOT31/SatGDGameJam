@@ -32,6 +32,8 @@ func _physics_process(delta):
 	if chasing == true:
 		if obj.global_position.x < 880 and obj.global_position.x > 352:
 			velocity.x = obj.global_position.x - global_position.x
+			if velocity.x > 0:
+				animsprite.set_flip_h(true)
 			animsprite.play ("walk")
 	elif idling == true:
 			
