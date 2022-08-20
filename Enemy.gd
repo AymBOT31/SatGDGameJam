@@ -91,3 +91,4 @@ func _on_AnimatedSprite_animation_finished():
 func _on_damage_body_entered(body):
 		if body.is_in_group("Player"):
 			print("dead")
+			get_tree().change_scene("deathscene.tscn")
