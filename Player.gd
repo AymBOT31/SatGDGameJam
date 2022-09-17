@@ -152,3 +152,24 @@ func _on_Area2D15_body_entered(body):
 func _on_Area2D15_body_exited(body):
 	if body.is_in_group("Player"):
 		gravity = gravity + 550
+
+
+func _on_TouchScreenButton_pressed():
+	if is_on_floor():
+			velocity.y = -jump_speed
+
+
+func _on_TouchScreenButton2_pressed():
+	animsprite.set_flip_h(false)
+	velocity.x += speed
+	animsprite.play("Run")
+	
+	direction = 0
+
+
+func _on_TouchScreenButton3_pressed():
+		animsprite.set_flip_h(true)
+		velocity.x -= speed
+		animsprite.play("Run")
+		
+		direction = 1
