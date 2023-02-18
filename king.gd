@@ -1,6 +1,6 @@
 extends KinematicBody2D
 export (int) var gravity = 500
-export (int) var health = 250
+export (int) var health = 3
 export (int) var speed = 700
 var velocity = Vector2.ZERO
 signal health_zero
@@ -22,18 +22,19 @@ func _ready():
 func _physics_process(delta):
 	velocity.y += gravity * delta
 	velocity = move_and_slide(velocity, Vector2.UP)
-	animsprite.play ("idle")
+	
 	if health == 0:
-		animsprite.play ("death")
+		
 		set_physics_process(false)
 		$CollisionShape2D.disabled = true
-		
 
 		
 		
 func _process(delta):
 	if health <= 0:
-		 emit_signal("health_zero")
+		queue_free()
 	
 
 
+func _on_Objecctt_body_entered(body):
+	health = health - 1

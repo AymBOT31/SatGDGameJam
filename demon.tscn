@@ -46,7 +46,6 @@ animations = [ {
 
 [sub_resource type="Animation" id=9]
 resource_name = "Entrance"
-loop = true
 tracks/0/type = "bezier"
 tracks/0/path = NodePath(".:position:x")
 tracks/0/interp = 1
@@ -95,7 +94,7 @@ tracks/1/keys = {
 extents = Vector2( 180.125, 133.125 )
 
 [node name="demon" type="KinematicBody2D" groups=["enemy"]]
-position = Vector2( 2440, 752 )
+position = Vector2( 2344, 896 )
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

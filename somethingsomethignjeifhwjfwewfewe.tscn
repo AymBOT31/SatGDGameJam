@@ -39,4 +39,6 @@ normal = ExtResource( 4 )
 
 [connection signal="pressed" from="TouchScreenButton" to="Player" method="_on_TouchScreenButton_pressed"]
 [connection signal="pressed" from="TouchScreenButton2" to="Player" method="_on_TouchScreenButton2_pressed"]
+[connection signal="released" from="TouchScreenButton2" to="Player" method="_on_TouchScreenButton2_released"]
 [connection signal="pressed" from="TouchScreenButton3" to="Player" method="_on_TouchScreenButton3_pressed"]
+[connection signal="released" from="TouchScreenButton3" to="Player" method="_on_TouchScreenButton3_released"]
