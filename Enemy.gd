@@ -28,6 +28,7 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity, Vector2.UP)
 	
 
+
 	
 	if chasing == true:
 		if obj.global_position.x < 880 and obj.global_position.x > 352:
@@ -39,7 +40,7 @@ func _physics_process(delta):
 			
 		animsprite.play("idle")
 	
-	if health == 0:
+	if health <= 0:
 		animsprite.play ("death")
 		set_physics_process(false)
 		$CollisionShape2D.disabled = true
@@ -49,6 +50,7 @@ func _physics_process(delta):
 func _on_Area2D16_body_entered(body):
 	if body.is_in_group("Player"):
 		chasing = true
+	
 
 
 func _on_Area2D16_body_exited(body):

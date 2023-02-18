@@ -7,7 +7,11 @@ export (int) var health = 3
 const bulletPath = preload ("res://projectile.tscn")
 var direction = 0
 var velocity = Vector2.ZERO
-onready var animsprite = $AnimatedSprite
+var left = false
+var WALK_SPEED
+var attacking = false
+onready var animsprite = $Camera2D/AnimatedSprite
+onready var animplayer = $Camera2D/AnimationPlayer
 onready var pposition = $Node2D/Position2D
 
 
@@ -18,8 +22,10 @@ func get_input():
 	if velocity.y != 0:
 		animsprite.play("jump")
 		if Input.is_action_pressed("ui_right"):
+			
 				animsprite.set_flip_h(false)
 				velocity.x += speed
+				
 		elif Input.is_action_pressed("ui_left"):
 				animsprite.set_flip_h(true)
 				velocity.x -= speed
@@ -39,10 +45,22 @@ func get_input():
 
 
 func _physics_process(delta):
+	
+	if left == true:
+		velocity.x =+ -WALK_SPEED
+	move_and_slide(velocity, Vector2(0, -1))
+	
+	
+	
+	
+	
+	
 	if health <= 0:
 		get_tree().reload_current_scene()
-	
-	get_input()
+		
+
+	if attacking == false:
+		get_input()
 	velocity.y += gravity * delta
 	velocity = move_and_slide(velocity, Vector2.UP)
 	if Input.is_action_just_pressed("ui_up"):
@@ -61,8 +79,11 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("shoot"):
 		print("shooting")
 		shoot()
-		animsprite.play("Attack")
 		
+	if Input.is_action_just_pressed("slash"):
+		attacking = true 
+		animsprite.play("Attack")
+		animplayer.play("New Anim")
 
 func shoot():
 	var projectile = bulletPath.instance()
@@ -76,7 +97,8 @@ func shoot():
 
 
 func _on_Area2D_body_entered(body):
-	if body.is_in_group("Player"):
+	if body.is_in_group("enemy"):
+		body.health = body.health - 100
 		print("cat")
 
 
@@ -173,3 +195,17 @@ func _on_TouchScreenButton3_pressed():
 		animsprite.play("Run")
 		
 		direction = 1
+
+
+func _on_TouchScreenButton2_released():
+	pass
+
+
+func _on_TouchScreenButton3_released():
+	pass
+
+
+
+
+func _on_AnimatedSprite_animation_finished():
+	attacking = false
