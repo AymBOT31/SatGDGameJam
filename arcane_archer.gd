@@ -27,11 +27,13 @@ func _physics_process(delta):
 		animsprite.play ("death")
 		set_physics_process(false)
 		$CollisionShape2D.disabled = true
+		
 
 		
 		
 func _process(delta):
 	if health <= 0:
 		 emit_signal("health_zero")
+	
 
 

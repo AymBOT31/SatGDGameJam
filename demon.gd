@@ -44,6 +44,7 @@ func _physics_process(delta):
 
 func _on_arcane_archer_health_zero():
 	animplayer.play("Entrance")
+	
 
 
 func _on_Area2D_body_entered(body):
